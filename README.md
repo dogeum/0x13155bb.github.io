@@ -1,62 +1,35 @@
-# mug
+# Simpleyyt
 
-Jekyll theme
+My blog based on Jekyll-Bootstrap.
 
-> :warning:
-  This theme requires ruby and rubygems installed
+## About Jekyll-Bootstrap
 
-* [x] Clean layout
-* [x] Resposive layout
-* [x] Preprocessor SASS
-* [x] CSS minified
-* [x] Search posts
-* [x] Pagination
-* [x] Syntax highlight
-* [x] Author config
-* [x] Share posts
-* [x] Comments with Disqus
+For all usage and documentation please see: <http://jekyllbootstrap.com>
 
----
+## About theme
 
-### Start in 4 steps
+This theme is the copy of [elementaryOS](http://elementaryos.org) portal page. Some features are imperfect, but I will make it more perfect.
 
-1. Download or clone repo `git clone git@github.com:nandomoreirame/mug.git`
-2. Enter the folder: `cd mug/`
-3. Install Ruby gems: `bundle install`
-4. Start Jekyll server: `jekyll serve`
+## Usage
 
-Access, [localhost:4000/mug](http://localhost:4000/mug)
+You can edit the `_config.yml` file to change the setting of site. If you want to change avatar or favicon, just replace the files in `assets\themes\Snail\img`.
 
-### Deploy in Github pages in 2 steps
+## About excerpt
 
-1. Change the variables `GITHUB_REPONAME` and `GITHUB_REPO_BRANCH` in `Rakefile`
-2. Run `rake` or `rake publish` for build and publish on Github
+There are 2 ways of excerpt: "teaser" and "truncate_words" (Configurated in _config.yml).
 
----
+ * "teaser": look for the More tag (<!--more-->) and create a teaser from the content that precedes the More tag.
+You must place "<!--more-->" at paragraph in post. The whole content will be displayed in homepage if no More tag found in post.
 
-### Using Rake tasks
+ * "truncate_words": generate an excerpt automatically by selecting the first 20 words of the post. It doesn't work well in some of no-English post.
 
-* Create a new page: `rake page name="contact.md"`
-* Create a new post: `rake post title="TITLE OF THE POST"`
+## Change Log
 
----
+ * Add pagination.
+ * Add new way of excerpt.
+ * Download google fonts to the local.
+ * Add google custom search engine.
 
-### Demo and Download
+## License
 
-[Demo](https://nandomoreirame.github.io/mug/)
-[Download](https://github.com/nandomoreirame/mug/archive/master.zip)
-
-![mug - free Jekyll theme](/screenshot.png)
-
----
-
-### Copyright and license
-
-It is under [the MIT license](/LICENSE).
-
-> :warning:
-  Please remove metas `<meta name="robots" content="noindex">` and `<meta name="googlebot" content="noindex">` in `_layouts/default.html`
-
-Enjoy :yum:
-
-
+[MIT](http://opensource.org/licenses/MIT)
