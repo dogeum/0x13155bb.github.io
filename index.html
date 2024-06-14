@@ -1,74 +1,237 @@
----
-layout: page
-tagline:
----
-
-{% for post in paginator.posts %}
-
-<article class="home">
-
-  <span class="post-date">
-    {% assign d = post.date | date: "%d" | plus:'0' %}
-    {{ post.date | date: "%B" }}
-    {% case d %}
-    {% when 1 or 21 or 31 %}{{ d }}st,
-    {% when 2 or 22 %}{{ d }}nd,
-    {% when 3 or 23 %}{{ d }}rd,
-    {% else %}{{ d }}th,
-    {% endcase %}
-    {{ post.date | date: "%Y" }}
-  </span>
-
-  <h2>
-    <a href="{{ site.BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
-  </h2>
-
-  <div>
-    {% if post.fullview %}
-    {{ post.content }}
-    {% else %}
-    {% if post.shortinfo %}
-    {{ post.shortinfo }}
-    {% elsif post.description %}
-    {{ post.description }}
-    {% else %}
-    {{ post.excerpt }}
-    {% endif %}
-    {% endif %}
-  </div>
-
-</article>
-{% endfor %}
-<hr/>
-
-<ul class="pager"> 
-
-  {% if paginator.previous_page %}
-  <li class="previous">
-    {% if paginator.previous_page == 1 %}
-    <a href="{{ site.BASE_PATH }}/">&larr; Newer</a>
-    {% else %}
-    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.previous_page }}">&larr; Newer</a>
-    {% endif %}
-  </li>
-  {% else %}
-  <li class="previous disabled">
-    <a>&larr; Newer</a>
-  </li>
-  {% endif %}
-  
-  <li>
-    <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  </li>
-
-  {% if paginator.next_page %}
-  <li class="next">
-    <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.next_page }}">Older &rarr;</a>
-  </li>
-  {% else %}
-  <li class="next disabled">
-    <a>Older &rarr;</a>        
-  </li>
-  {% endif %}
-
-</ul>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Project</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- header -->
+  <header>
+    <div class="container">
+      <h1>
+        <button data-animation-scroll="true" data-target="#main">SU</button>
+      </h1>
+      <nav>
+        <ul>
+          <li>
+            <button data-animation-scroll="true" data-target="#about">
+              About
+            </button>
+          </li>
+          <li>
+            <button data-animation-scroll="true" data-target="#features">
+              Features
+            </button>
+          </li>
+          <li>
+            <button data-animation-scroll="true" data-target="#portfolio">
+              Portfolio
+            </button>
+          </li>
+          <li>
+            <button data-animation-scroll="true" data-target="#contact">
+              Contact
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- //end header -->
+  <!-- main -->
+  <main id="main">
+    <div class="container">
+      <h4>Welcome</h4>
+      <h2 class="active">I like reading <span></span></h2>
+      <p>긴 하루 끝에 좋은 책이 기다리고 있다는 것만으로 그 날은 더 행복해진다.</p>
+      <button class="download">이력서 다운로드</button>
+      <button class="mouse"><i class="fa-solid fa-book"></i></button>
+    </div>
+  </main>
+  <!-- //end Main -->
+  <!-- About Me -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="title">
+        <h4>사이트 소개</h4>
+        <h2>인사말</h2>
+      </div>
+      <div class="about-self">
+        <div class="left">
+          <img src="images/book.jpg" alt="">
+        </div>
+        <div class="right">
+          <h3> <strong>독서 기록 및 도서 추천</strong> 사이트</h3>
+          <p>여러분은 일상에서 책을 얼마나 읽으시나요?</p>
+          <p>우리나라 성인 10명 중 6명은 독서량이 0권이라고 합니다.</p>
+          <p>해당 사이트를 이용하여 읽은 책을 기록하고 공유하며 책 읽기에 습관을 들이면 어떨까요?</p>
+          <p></p>
+          <div class="social">
+            <a href="#">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#">
+              <i class="fa-brands fa-twitch"></i>
+            </a>
+            <a href="#">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end About Me -->
+  <!-- What I Do -->
+  <section id="features" class="do">
+    <div class="container">
+      <div class="title">
+        <h4>Features</h4>
+        <h2>What I Do</h2>
+      </div>
+      <div class="do-me">                
+        <div class="do-inner">
+          <div class="icon">
+            <i class="fa-brands fa-html5"></i>
+          </div>
+          <div class="content">
+            <h3>HTML5</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo culpa magni laboriosam sit excepturi quibusdam adipisci, vero debitis?</p>
+          </div>
+        </div>        
+        <div class="do-inner">
+          <div class="icon">
+            <i class="fa-brands fa-css3-alt"></i>        
+          </div>
+          <div class="content">
+            <h3>CSS3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo culpa magni laboriosam sit excepturi quibusdam adipisci, vero debitis?</p>
+          </div>
+        </div>
+        <div class="do-inner">
+          <div class="icon">
+            <i class="fa-brands fa-bootstrap"></i>
+          </div>
+          <div class="content">
+            <h3>BootStrap v5.0</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo culpa magni laboriosam sit excepturi quibusdam adipisci, vero debitis?</p>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </section>
+  <!-- //end What I Do -->
+  <!-- Background -->
+  <div class="bg"></div>
+  <!-- //end Background-->
+  <!-- PortFolio -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="title">
+        <h4>PORTFOLIOBACK</h4>
+        <h2>PortFolio</h2>
+      </div>
+      <div class="portfolio-me">
+        <div class="portfolio-inner">
+          <img src="images/mock1.png" alt="">
+          <strong>BRANDING</strong>
+          <h3>Package Design</h3>
+        </div>
+        <div class="portfolio-inner">
+          <img src="images/mock2.png" alt="">
+          <strong>DEVELOPMENT</strong>
+          <h3>Tablet App Dev</h3>
+        </div>
+        <div class="portfolio-inner">
+          <img src="images/mock3.png" alt="">
+          <strong>MARKETING</strong>
+          <h3>Coka Cola </h3>
+        </div>
+        <div class="portfolio-inner">
+          <img src="images/mock4.png" alt="">
+          <strong>APP</strong>
+          <h3>FaceBook Clone</h3>
+        </div>
+        <div class="portfolio-inner">
+          <img src="images/mock5.png" alt="">
+          <strong>APP</strong>
+          <h3>Netflix Clone</h3>
+        </div>
+        <div class="portfolio-inner">
+          <img src="images/mock6.png" alt="">
+          <strong>WEB</strong>
+          <h3>FirmBee Web</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //end PortFolio -->
+   <!-- Contact With Me -->
+   <section id="contact" class="contact">
+    <div class="container">
+      <div class="title">
+        <h4>CONTACT</h4>
+        <h2>Contact With Me</h2>
+      </div>
+      <div class="contact-me">
+        <div class="left">
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-phone-volume"></i>
+            </div>
+            <div class="info-text">
+              <h3>phone</h3>
+              <p>010-2222-1111</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <div class="info-text">
+              <h3>email</h3>
+              <p>sucoding@naver.com</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-location-crosshairs"></i>
+            </div>
+            <div class="info-text">
+              <h3>address</h3>
+              <p>Samseong-ro, Gangnam-gu, Seoul, Republic of Korea</p>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <form action="#">
+            <div class="form-group">
+              <label for="name">name</label>
+              <input type="text" id="name">
+            </div>
+            <div class="form-group">
+              <label for="email">email</label>
+              <input type="text" id="email">
+            </div>
+            <div class="form-group">
+              <label for="msg">message</label>
+              <textarea id="msg"></textarea>
+            </div>
+            <button>send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end Contact With Me -->
+  <!-- script 태그는 수정하지 않습니다. -->
+  <script src="script.js"></script>
+</body>
+</html>
